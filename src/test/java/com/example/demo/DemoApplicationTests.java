@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.estudioGG.hc.model.Registro;
-import com.estudioGG.hc.utils.ListaValidator;
+import com.estudioGG.server.model.Registro;
+import com.estudioGG.server.utils.ListaValidator;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
