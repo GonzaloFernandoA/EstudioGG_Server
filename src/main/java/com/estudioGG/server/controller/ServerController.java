@@ -6,24 +6,27 @@ package com.estudioGG.server.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author Gonzalo_Avalos
  */
-@Controller
-@RequestMapping("/demanda")
+@RestController
 public class ServerController {
 
     private static final Logger logger = LoggerFactory.getLogger(ServerController.class);
 
-    // Muestra el formulario para crear una nueva historia clínica
     @GetMapping("/health")
-    public String getHealth(Model model) {
-        return "OK";
+    public ResponseEntity<String> getHealth() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String response = "OK - " + now.format(formatter);
+        return ResponseEntity.ok(response);
+
     }
 }
